@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %}Users{% endblock %} {% block content
+%}
+<h1 align="center">List of Users</h1>
+<ul class="list-group list-group-flush" id="users">
+    {% for user in users %} {% if user.username != "admin" %}
+    <li class="list-group-item">
+        {{user.name}} - {{user.username}} ({{user.email}})
+        <button type="button" class="close" onClick="deleteUser({{user.id}})">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </li>
+    {% endif %} {% endfor %}
+</ul>
+{% endblock %}
